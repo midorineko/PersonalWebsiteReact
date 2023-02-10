@@ -1,0 +1,19 @@
+.communityContainer{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: #b691ff;
+}
+
+.communityTitle{
+    font-size: 5em;
+    margin-bottom: 5vh;
+    text-align: center;
+}
+
+.communityParagraphContainer{
+    width: 60%;
+
+}
