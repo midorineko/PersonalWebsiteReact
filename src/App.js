@@ -36,15 +36,17 @@ function App() {
             backgroundSize: 'cover',
           }}
       />
-      <ParallaxLayer offset={0} speed={1}>
+      
+      <ParallaxLayer offset={0} speed={.75}>
         <Home />
       </ParallaxLayer>
-      <ParallaxLayer offset={1} speed={-2}>
-        <About/>
+      <ParallaxLayer offset={1} speed={-1} sticky={{ start: 1.1, end: 1.5 }} style={{justifyContent: 'flex-start' }}>
+          <About/>
       </ParallaxLayer>
-      <ParallaxLayer offset={2} speed={1.0}>
+      <ParallaxLayer offset={2} speed={1.5}>
         <Community/>
       </ParallaxLayer>
+
     </Parallax>
 
 

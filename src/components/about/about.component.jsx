@@ -17,7 +17,11 @@ const About = () => {
                     moderating forums, and providing teachable content. My thirst for knowledge is 
                     stronger than ever before. Currently, I am seeking to expand into a new field that 
                     aligns with my values and supports team-wide development.
+
+                    <i class="fa-brands fa-fonticons"></i>
                 </p>
+                <div>
+                </div>
             </div>
         </div>
     )
