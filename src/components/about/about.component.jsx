@@ -26,9 +26,8 @@ const About = () => {
                 </p>
                 <div className="linksContainer">
                     {
-                        links.map(element => {
-                                console.log(element)
-                                return(<a className='aboutLinks' href={element.link}><i className={element.icon}></i></a>)
+                        links.map((element, eleInd) => {
+                                return(<a key={eleInd} className='aboutLinks' href={element.link}><i className={element.icon}></i></a>)
                         })
                     }
    

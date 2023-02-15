@@ -1,6 +1,5 @@
 import './home.styles.scss'
 import  HomeLogo  from '../../assets/images/meinsuit.jpg';
-import { Outlet } from 'react-router-dom';
 
 const Home = () => {
     return (
@@ -13,7 +12,6 @@ const Home = () => {
                     <h1 className='homeMyName'>Steven Inouye</h1>
                 </div>
             </div>
-            <Outlet/>
         </>
     )
 }
