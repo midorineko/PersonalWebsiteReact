@@ -9,11 +9,26 @@
 
 .aboutTitle{
     font-size: 5em;
-    margin-bottom: 5vh;
+    margin-bottom: 2vh;
     text-align: center;
 }
 
 .aboutParagraphContainer{
     width: 60%;
 
+}
+
+.linksContainer{
+    display: flex;
+    justify-content: center;
+}
+
+.aboutLinks{
+    text-decoration: inherit;
+    color: inherit;
+    margin: 10px;
+}
+
+.fa-icons{
+    font-size: 30px;
 }

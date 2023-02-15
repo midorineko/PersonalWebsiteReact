@@ -1,6 +1,12 @@
 import './about.styles.scss'
 
 const About = () => {
+
+    let links = [
+        {icon: 'fa-brands fa-linkedin fa-icons', link: 'https://www.linkedin.com/in/sinouye/'},
+        {icon: 'fa-regular fa-envelope fa-icons', link: 'mailto: Steven.Inouye91@gmail.com'},
+    ]
+
     return (
         <div className='aboutContainer'>
             <div>
@@ -17,10 +23,15 @@ const About = () => {
                     moderating forums, and providing teachable content. My thirst for knowledge is 
                     stronger than ever before. Currently, I am seeking to expand into a new field that 
                     aligns with my values and supports team-wide development.
-
-                    <i class="fa-brands fa-fonticons"></i>
                 </p>
-                <div>
+                <div className="linksContainer">
+                    {
+                        links.map(element => {
+                                console.log(element)
+                                return(<a className='aboutLinks' href={element.link}><i className={element.icon}></i></a>)
+                        })
+                    }
+   
                 </div>
             </div>
         </div>
