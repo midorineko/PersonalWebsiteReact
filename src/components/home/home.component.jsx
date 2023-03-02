@@ -4,7 +4,7 @@ import {useEffect} from 'react';
 
 const Home = () => {
     const fetchUrl = () =>{
-        fetch('https://a00zeg9j0d.execute-api.us-east-1.amazonaws.com/prod').then((res)=>{
+        fetch('https://orhr03i0hk.execute-api.us-east-1.amazonaws.com/default').then((res)=>{
             return res.json
         }).then((data)=>{
             console.log(data)
