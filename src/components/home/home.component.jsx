@@ -4,6 +4,21 @@ import {useEffect} from 'react';
 
 const Home = () => {
     const fetchUrl = () =>{
+        fetch('https://orhr03i0hk.execute-api.us-east-1.amazonaws.com/default', {
+		method: 'GET',
+		mode: 'cors',
+		headers: {
+			'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Credentials': true,
+		}
+        })
+        .then(response => response.json())
+        .then(response => {
+            console.log(response)
+            return;
+        })
+        .catch(err => console.error(err));
+
         fetch('https://orhr03i0hk.execute-api.us-east-1.amazonaws.com/default').then((res)=>{
             return res.json
         }).then((data)=>{
