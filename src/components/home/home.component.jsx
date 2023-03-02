@@ -18,12 +18,6 @@ const Home = () => {
             return;
         })
         .catch(err => console.error(err));
-
-        fetch('https://orhr03i0hk.execute-api.us-east-1.amazonaws.com/default').then((res)=>{
-            return res.json
-        }).then((data)=>{
-            console.log(data)
-        })
     }
     return (
         <>
