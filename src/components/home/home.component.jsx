@@ -1,6 +1,7 @@
 import './home.styles.scss'
 import  HomeLogo  from '../../assets/images/meinsuit.jpg';
 import {useEffect} from 'react';
+import { Outlet } from 'react-router-dom';
 
 const Home = () => {
     const fetchUrl = () =>{
@@ -30,6 +31,7 @@ const Home = () => {
                 </div>
                 <button onClick={fetchUrl}>Fetch Lights</button>
             </div>
+            <Outlet/>
         </>
     )
 }
