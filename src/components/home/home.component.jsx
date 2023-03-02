@@ -3,6 +3,13 @@ import  HomeLogo  from '../../assets/images/meinsuit.jpg';
 import {useEffect} from 'react';
 
 const Home = () => {
+    const fetchUrl = () =>{
+        fetch('https://a00zeg9j0d.execute-api.us-east-1.amazonaws.com/prod').then((res)=>{
+            return res.json
+        }).then((data)=>{
+            console.log(data)
+        })
+    }
     return (
         <>
             <div className='homeContainer'>
@@ -12,6 +19,7 @@ const Home = () => {
                 <div>
                     <h1 className='homeMyName'>Steven Inouye</h1>
                 </div>
+                <button onClick={fetchUrl}>Fetch Lights</button>
             </div>
         </>
     )
