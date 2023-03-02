@@ -1,5 +1,6 @@
 import './home.styles.scss'
 import  HomeLogo  from '../../assets/images/meinsuit.jpg';
+import {useEffect} from 'react';
 
 const Home = () => {
     return (
