@@ -43,24 +43,3 @@ export const deleteNote = /* GraphQL */ `
     }
   }
 `;
-export const createLEDHub = /* GraphQL */ `
-  mutation CreateLEDHub($input: CreateLEDHubInput!) {
-    createLEDHub(input: $input) {
-      email
-    }
-  }
-`;
-export const updateLEDHub = /* GraphQL */ `
-  mutation UpdateLEDHub($input: UpdateLEDHubInput!) {
-    updateLEDHub(input: $input) {
-      email
-    }
-  }
-`;
-export const deleteLEDHub = /* GraphQL */ `
-  mutation DeleteLEDHub($input: DeleteLEDHubInput!) {
-    deleteLEDHub(input: $input) {
-      email
-    }
-  }
-`;

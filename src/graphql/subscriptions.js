@@ -34,24 +34,3 @@ export const onDeleteNote = /* GraphQL */ `
     }
   }
 `;
-export const onCreateLEDHub = /* GraphQL */ `
-  subscription OnCreateLEDHub($email: String) {
-    onCreateLEDHub(email: $email) {
-      email
-    }
-  }
-`;
-export const onUpdateLEDHub = /* GraphQL */ `
-  subscription OnUpdateLEDHub($email: String) {
-    onUpdateLEDHub(email: $email) {
-      email
-    }
-  }
-`;
-export const onDeleteLEDHub = /* GraphQL */ `
-  subscription OnDeleteLEDHub($email: String) {
-    onDeleteLEDHub(email: $email) {
-      email
-    }
-  }
-`;
