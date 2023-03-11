@@ -26,6 +26,7 @@ import Login from "../login/login.component";
 
 function LEDs() {
   const { user } = useContext(UserContext)
+  console.log(user.attributes.email)
   if (user) {
     return <Community />
   } else {

@@ -7,6 +7,7 @@ function Login() {
       <button onClick={() => Auth.federatedSignIn({ provider: 'LoginWithAmazon' })}>
         Sign In with Amazon
       </button>
+      <button onClick={() => Auth.signOut()}>Sign Out</button>
 
     </div>
   )

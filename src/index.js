@@ -9,30 +9,30 @@ import config from './aws-exports';
 import { UserContextProvider } from './contexts/UserContext'
 
 
-const isLocalhost = Boolean(
-  window.location.hostname.includes('localhost') ||
-    // [::1] is the IPv6 localhost address.
-    window.location.hostname === '[::1]' ||
-    // 127.0.0.0/8 are considered localhost for IPv4.
-    window.location.hostname.match(
-      /^127(?:.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)){3}$/
-    )
-)
-const signInURI = config.oauth.redirectSignIn.split(',')
-const signOutURI = config.oauth.redirectSignOut.split(',')
-if (isLocalhost) {
-  config.oauth.redirectSignIn = signInURI[0]
-  config.oauth.redirectSignOut = signOutURI[0]
-  console.log('local')
-} else if (window.location.hostname.includes('d3asv5ybyyooma')) {
-  config.oauth.redirectSignIn = signInURI[1]
-  config.oauth.redirectSignOut = signOutURI[1]
-  console.log('prod')
-} else {
-  console.log('This is not possible')
-}
+// const isLocalhost = Boolean(
+//   window.location.hostname.includes('localhost') ||
+//     // [::1] is the IPv6 localhost address.
+//     window.location.hostname === '[::1]' ||
+//     // 127.0.0.0/8 are considered localhost for IPv4.
+//     window.location.hostname.match(
+//       /^127(?:.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)){3}$/
+//     )
+// )
+// const signInURI = config.oauth.redirectSignIn.split(',')
+// const signOutURI = config.oauth.redirectSignOut.split(',')
+// if (isLocalhost) {
+//   config.oauth.redirectSignIn = signInURI[0]
+//   config.oauth.redirectSignOut = signOutURI[0]
+//   console.log('local')
+// } else if (window.location.hostname.includes('d3asv5ybyyooma')) {
+//   config.oauth.redirectSignIn = signInURI[1]
+//   config.oauth.redirectSignOut = signOutURI[1]
+//   console.log('prod')
+// } else {
+//   console.log('This is not possible')
+// }
 
-Amplify.configure(config);
+// Amplify.configure(config);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
