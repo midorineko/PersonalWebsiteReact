@@ -9,14 +9,10 @@ import LEDs from './components/leds/leds.component';
 import { Amplify, Auth } from 'aws-amplify';
 import awsconfig from './aws-exports';
 import Login from './components/login/login.component';
-import { useContext } from 'react'
-//Context
-import { UserContext } from './contexts/UserContext'
 
 Amplify.configure(awsconfig);
 
 function App() {
-  const { user } = useContext(UserContext)
   return (
     <Routes>
       <Route path='/' element={<Navigation/>}>
