@@ -59,10 +59,10 @@
     "breakCircularDependency": true,
     "dependsOn": [],
     "hostedUI": true,
-    "hostedUIDomainName": "personalwebsitereact2d266d70-2d266d70",
+    "hostedUIDomainName": "personalwebsitereact1201fea2-1201fea2",
     "authProvidersUserPool": [],
     "hostedUIProviderMeta": "[]",
-    "oAuthMetadata": "{\"AllowedOAuthFlows\":[\"code\"],\"AllowedOAuthScopes\":[\"phone\",\"email\",\"openid\",\"profile\",\"aws.cognito.signin.user.admin\"],\"CallbackURLs\":[\"http://localhost:3000/\",\"https://main.d3asv5ybyyooma.amplifyapp.com/\"],\"LogoutURLs\":[\"http://localhost:3000/\",\"https://main.d3asv5ybyyooma.amplifyapp.com/\"]}",
+    "oAuthMetadata": "{\"AllowedOAuthFlows\":[\"code\"],\"AllowedOAuthScopes\":[\"phone\",\"email\",\"openid\",\"profile\",\"aws.cognito.signin.user.admin\"],\"CallbackURLs\":[\"http://localhost:3000/leds/\",\"https://main.d3asv5ybyyooma.amplifyapp.com/leds/\"],\"LogoutURLs\":[\"http://localhost:3000/leds/\"]}",
     "authProviders": []
   }
 }
