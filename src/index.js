@@ -24,7 +24,7 @@ if (isLocalhost) {
   config.oauth.redirectSignIn = signInURI[0]
   config.oauth.redirectSignOut = signOutURI[0]
   console.log('local')
-} else if (window.location.hostname === 'https://main.d3asv5ybyyooma.amplifyapp.com/') {
+} else if (window.location.hostname === 'https://main.d3asv5ybyyooma.amplifyapp.com/leds') {
   config.oauth.redirectSignIn = signInURI[1]
   config.oauth.redirectSignOut = signOutURI[1]
   console.log('prod')
