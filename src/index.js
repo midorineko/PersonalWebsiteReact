@@ -29,7 +29,7 @@ if (isLocalhost) {
   config.oauth.redirectSignOut = signOutURI[1]
   console.log('prod')
 } else {
-  console.alert('This is not possible')
+  console.log('This is not possible')
 }
 
 Amplify.configure(config);
