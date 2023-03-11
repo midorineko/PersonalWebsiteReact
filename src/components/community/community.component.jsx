@@ -4,6 +4,8 @@ import  RedditImg  from '../../assets/images/reddit.png';
 import  ThingiverseImg  from '../../assets/images/thingiverse.png';
 import  GithubImg  from '../../assets/images/github.png';
 import  YoutubeImg  from '../../assets/images/youtube.png';
+import { Auth } from 'aws-amplify'
+
 const Community = () => {
     let communities = [
         {location:'../../assets/images/thingiverse.png', name: 'Thingiverse', link: 'https://www.thingiverse.com/mrcatnaps/designs', description: '3D Models and Designs'},
@@ -13,6 +15,7 @@ const Community = () => {
     ]
     return (
         <div className='communityContainer'>
+
             <div>
                 <h1 className='communityTitle'>Communities</h1>
             </div>
