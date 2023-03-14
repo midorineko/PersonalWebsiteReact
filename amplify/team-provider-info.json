@@ -17,6 +17,12 @@
       },
       "api": {
         "personalwebsitereact": {}
+      },
+      "function": {
+        "ReactLEDPersonalLambda": {
+          "deploymentBucketName": "amplify-amplifye0adb3748a404-staging-21212-deployment",
+          "s3Key": "amplify-builds/ReactLEDPersonalLambda-514a7850775335536358-build.zip"
+        }
       }
     }
   }

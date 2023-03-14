@@ -8,6 +8,11 @@ export const getUserLeds = /* GraphQL */ `
     }
   }
 `;
+export const getAllLeds = /* GraphQL */ `
+  query GetAllLeds($email: String) {
+    getAllLeds(email: $email)
+  }
+`;
 export const getUserThings = /* GraphQL */ `
   query GetUserThings($id: ID!) {
     getUserThings(id: $id) {

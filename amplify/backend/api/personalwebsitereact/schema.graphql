@@ -12,4 +12,5 @@ type UserLeds {
 
 type Query{
   getUserLeds(email: String): UserLeds
+  getAllLeds(email: String): String @function(name: "ReactLEDPersonalLambda-${env}")
 }
