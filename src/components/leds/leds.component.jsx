@@ -11,27 +11,31 @@ import {
   View,
   withAuthenticator
 } from "@aws-amplify/ui-react";
-import { listNotes } from "../../graphql/queries";
+import { getAllLeds } from "../../graphql/queries";
 import {
   createNote as createNoteMutation,
   deleteNote as deleteNoteMutation,
 } from "../../graphql/mutations";
-import { Auth } from "aws-amplify";
+import { Auth, graphqlOperation } from "aws-amplify";
 
 
 const LEDs = ({user}) => {
-  const [notes, setNotes] = useState([]);
+  const [allLeds, setAllLeds] = useState({});
 
   useEffect(() => {
-    console.log(user.attributes.email)
-    // fetchNotes();
+    fetchLEDs(user.attributes.email);
   }, []);
 
-  // async function fetchNotes() {
-  //   const apiData = await API.graphql({ query: listNotes });
-  //   const notesFromAPI = apiData.data.listNotes.items;
-  //   setNotes(notesFromAPI);
-  // }
+  async function fetchLEDs(email) {
+    const allLEDData = await API.graphql(
+      graphqlOperation(getAllLeds, { email: email })
+    );
+    let allLedObject = JSON.parse(allLEDData.data.getAllLeds).Item;
+    delete allLedObject['email']
+    delete allLedObject['customAdminUrl']
+    console.log(allLedObject);
+    setAllLeds(allLedObject);
+  }
 
   // async function createNote(event) {
   //   event.preventDefault();

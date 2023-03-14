@@ -21,9 +21,9 @@ exports.handler = async (event) => {
     if(event.fieldName ===  'getAllLeds'){
         try{
             const data = await getAllLEDs(params);
-            return {body: JSON.stringify(data)}
+            return JSON.stringify(data);
         }catch(err){
-            return {error: err}
+            return {error: err};
         }
     }
 

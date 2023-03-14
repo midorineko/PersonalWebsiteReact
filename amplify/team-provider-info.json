@@ -21,7 +21,7 @@
       "function": {
         "ReactLEDPersonalLambda": {
           "deploymentBucketName": "amplify-amplifye0adb3748a404-staging-21212-deployment",
-          "s3Key": "amplify-builds/ReactLEDPersonalLambda-514a7850775335536358-build.zip"
+          "s3Key": "amplify-builds/ReactLEDPersonalLambda-2f386e7638516e6b4f68-build.zip"
         }
       }
     }
