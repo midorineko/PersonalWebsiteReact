@@ -1,34 +1,37 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const onCreateNote = /* GraphQL */ `
-  subscription OnCreateNote($filter: ModelSubscriptionNoteFilterInput) {
-    onCreateNote(filter: $filter) {
+export const onCreateUserThings = /* GraphQL */ `
+  subscription OnCreateUserThings(
+    $filter: ModelSubscriptionUserThingsFilterInput
+  ) {
+    onCreateUserThings(filter: $filter) {
+      email
       id
-      name
-      description
       createdAt
       updatedAt
     }
   }
 `;
-export const onUpdateNote = /* GraphQL */ `
-  subscription OnUpdateNote($filter: ModelSubscriptionNoteFilterInput) {
-    onUpdateNote(filter: $filter) {
+export const onUpdateUserThings = /* GraphQL */ `
+  subscription OnUpdateUserThings(
+    $filter: ModelSubscriptionUserThingsFilterInput
+  ) {
+    onUpdateUserThings(filter: $filter) {
+      email
       id
-      name
-      description
       createdAt
       updatedAt
     }
   }
 `;
-export const onDeleteNote = /* GraphQL */ `
-  subscription OnDeleteNote($filter: ModelSubscriptionNoteFilterInput) {
-    onDeleteNote(filter: $filter) {
+export const onDeleteUserThings = /* GraphQL */ `
+  subscription OnDeleteUserThings(
+    $filter: ModelSubscriptionUserThingsFilterInput
+  ) {
+    onDeleteUserThings(filter: $filter) {
+      email
       id
-      name
-      description
       createdAt
       updatedAt
     }
