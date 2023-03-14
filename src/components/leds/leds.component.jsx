@@ -24,42 +24,42 @@ const LEDs = ({user}) => {
 
   useEffect(() => {
     console.log(user.attributes.email)
-    fetchNotes();
+    // fetchNotes();
   }, []);
 
-  async function fetchNotes() {
-    const apiData = await API.graphql({ query: listNotes });
-    const notesFromAPI = apiData.data.listNotes.items;
-    setNotes(notesFromAPI);
-  }
+  // async function fetchNotes() {
+  //   const apiData = await API.graphql({ query: listNotes });
+  //   const notesFromAPI = apiData.data.listNotes.items;
+  //   setNotes(notesFromAPI);
+  // }
 
-  async function createNote(event) {
-    event.preventDefault();
-    const form = new FormData(event.target);
-    const data = {
-      name: form.get("name"),
-      description: form.get("description"),
-    };
-    await API.graphql({
-      query: createNoteMutation,
-      variables: { input: data },
-    });
-    fetchNotes();
-    event.target.reset();
-  }
+  // async function createNote(event) {
+  //   event.preventDefault();
+  //   const form = new FormData(event.target);
+  //   const data = {
+  //     name: form.get("name"),
+  //     description: form.get("description"),
+  //   };
+  //   await API.graphql({
+  //     query: createNoteMutation,
+  //     variables: { input: data },
+  //   });
+  //   fetchNotes();
+  //   event.target.reset();
+  // }
 
-  async function deleteNote({ id }) {
-    const newNotes = notes.filter((note) => note.id !== id);
-    setNotes(newNotes);
-    await API.graphql({
-      query: deleteNoteMutation,
-      variables: { input: { id } },
-    });
-  }
+  // async function deleteNote({ id }) {
+  //   const newNotes = notes.filter((note) => note.id !== id);
+  //   setNotes(newNotes);
+  //   await API.graphql({
+  //     query: deleteNoteMutation,
+  //     variables: { input: { id } },
+  //   });
+  // }
 
   return (
     <View className="App">
-      <button onClick={() => Auth.signOut()}>Sign Out</button>
+      {/* <button onClick={() => Auth.signOut()}>Sign Out</button>
 
       <Heading level={1}>My Notes App</Heading>
       <View as="form" margin="3rem 0" onSubmit={createNote}>
@@ -103,7 +103,7 @@ const LEDs = ({user}) => {
             </Button>
           </Flex>
         ))}
-      </View>
+      </View> */}
     </View>
   );
 };
