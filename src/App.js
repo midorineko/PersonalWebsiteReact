@@ -4,7 +4,8 @@ import {Routes, Route} from 'react-router-dom'
 import Navigation from './components/navigation/navigation.component'
 import Home from './components/home/home.component'
 import About from './components/about/about.component'
-import { Amplify, Auth } from 'aws-amplify';
+import BackgroundImage from './components/backgroundImage/BackgroundImage.component';
+import { Amplify } from 'aws-amplify';
 import awsconfig from './aws-exports';
 import LedLoginCheck from './components/login/ledLoginCheck.component';
 
@@ -37,8 +38,10 @@ function App() {
   return (
     <Routes>
       <Route path='/' element={<Navigation/>}>
-        <Route path='' element={<Home/>}>
-          <Route path='' element={<About/>}/>
+        <Route path='' element={<BackgroundImage/>}>
+          <Route path='' element={<Home/>}>
+            <Route path='' element={<About/>}/>
+          </Route>
         </Route>
       </Route>
       <Route path="/leds" element={<UserContextProvider><LedLoginCheck/></UserContextProvider>}></Route>
