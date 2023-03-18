@@ -10,9 +10,55 @@
     display: flex;
     align-items: center;
     justify-content: center;
- } 
-
- .aslan{
-    width: 50%;
-    opacity: 100%;
+    flex-direction: column;
  }
+
+ .carouselTitle{
+   background-color: #FFE8FF
+ }
+ .carouselImg{
+   width: 100%;
+   border-radius: 10%;
+ }
+
+.prevImage{
+   position: fixed;
+   left: 0;
+   height: 20%;
+   opacity: .1;
+   background-color: #FFE8FF;
+   border: 0;
+}
+.prevImage:hover{
+   -webkit-animation: fadeIn 0.5s forwards;
+   -moz-animation: fadeIn 0.5s forwards;
+   -o-animation: fadeIn 0.5s forwards;
+   animation: fadeIn 0.5s forwards;
+}
+
+
+.nextImage{
+   position: fixed;
+   right: 0;
+   height: 20%;
+   opacity: .1;
+   background-color: #FFE8FF;
+   border: 0;
+}
+
+.nextImage:hover{
+   -webkit-animation: fadeIn 0.5s forwards;
+   -moz-animation: fadeIn 0.5s forwards;
+   -o-animation: fadeIn 0.5s forwards;
+   animation: fadeIn 0.5s forwards;
+}
+
+
+
+
+@keyframes fadeIn {
+   100% {
+       display: block;
+       opacity: .5;
+   }
+}

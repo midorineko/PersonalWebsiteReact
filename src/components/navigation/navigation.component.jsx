@@ -38,7 +38,7 @@ const Navigation = () => {
             >
                 <ul>
                 <li>
-                    <a href="/home">Home</a>
+                    <a href="/#photos">Photos</a>
                 </li>
                 <li>
                     <a href="/#aboutContainer" onClick={() => {
@@ -54,6 +54,7 @@ const Navigation = () => {
                 </ul>
             </div>
         </nav>
+        <div id="photos"></div>
         <Outlet/>
         </>
     )
