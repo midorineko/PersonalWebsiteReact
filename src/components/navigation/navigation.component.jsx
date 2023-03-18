@@ -6,10 +6,24 @@ import  HomeLogo  from '../../assets/images/meinsuit.jpg';
 const Navigation = () => {
     const [isNavExpanded, setIsNavExpanded] = useState(false)
 
+    const scrollTop = () => {
+        setIsNavExpanded(false);
+        window.scrollTo(0, 0);
+    }
+
+    const scrollTo = (id) => {
+        setIsNavExpanded(false);
+        let scrollLoc = document.getElementById(id);
+        scrollLoc && scrollLoc.scrollIntoView({ behavior: "smooth", block: "start"});
+    }
+
     return(
         <>
         <nav className="navigation">
-            <a href="/#homeContainer" className="brand-name">
+            <a href="#" className="brand-name" onClick={(e) => {
+                        e.preventDefault();
+                        scrollTo('homeContainer');
+                    }}>
                 <img className="navLogo" src={HomeLogo} alt="Home"/>
             </a>
             <button
@@ -38,11 +52,14 @@ const Navigation = () => {
             >
                 <ul>
                 <li>
-                    <a href="/#photos">Photos</a>
+                    <a href="#" onClick={() => {
+                            scrollTop();
+                        }}><span>Photos</span></a>
                 </li>
                 <li>
-                    <a href="/#aboutContainer" onClick={() => {
-                        setIsNavExpanded(false)
+                    <a href="#" onClick={(e) => {
+                        e.preventDefault();
+                        scrollTo('aboutContainer');
                     }}><span>About</span></a>
                 </li>
                 {/* <li>

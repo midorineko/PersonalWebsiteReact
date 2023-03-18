@@ -21,6 +21,8 @@ const photos = {
 
 const BackgroundImage = () =>{
     const [currentPic, setCurrentPic] = useState(1)
+    const [nextHeight, setNextHeight] = useState('')
+
 
     const debounceButton = (fn) => {
         let timer;
@@ -31,6 +33,20 @@ const BackgroundImage = () =>{
             },200)
         }
     }
+
+    const imgLoad = () =>{
+        var offsetHeight = document.getElementById('carouselImg').offsetHeight;
+        const nextHeightOffset = offsetHeight.toString() + 'px'
+        setNextHeight(nextHeightOffset)
+    }
+
+    function handleResize() {
+        var offsetHeight = document.getElementById('carouselImg').offsetHeight;
+        const nextHeightOffset = offsetHeight.toString() + 'px'
+        setNextHeight(nextHeightOffset)
+    }
+    window.addEventListener('resize', handleResize)
+
 
     const nextImage = (type) => {
         let nextPic;
@@ -53,9 +69,9 @@ const BackgroundImage = () =>{
     return(
         <>
             <div className="bg">
-                <button className='prevImage' onClick={() => debouncedNext('prev')}>&larr;</button>
-                <img className='carouselImg' src={require(`../../assets/images/photos/${currentPic}.jpg`)} alt={photos[currentPic]['alt']} />
-                <button className='nextImage' onClick={() => debouncedNext('next')}>&rarr;</button>
+                <button className='prevImage' onClick={() => debouncedNext('prev')} style={{height: nextHeight}}>&larr;</button>
+                <img id="carouselImg" onLoad={imgLoad} className='carouselImg' src={require(`../../assets/images/photos/${currentPic}.jpg`)} alt={photos[currentPic]['alt']} />
+                <button className='nextImage' onClick={() => debouncedNext('next')} style={{height: nextHeight}}>&rarr;</button>
             </div>
             <Outlet />
         </>
