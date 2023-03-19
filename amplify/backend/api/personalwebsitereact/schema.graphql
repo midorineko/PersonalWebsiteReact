@@ -9,4 +9,5 @@ type Query{
 
 type Mutation {
 	createNewDevice(email: String, thingName: String, thingId: String, devices: String): String @function(name: "ReactLEDPersonalLambda-${env}")
+  updateDevices(email: String, devices: String): String @function(name: "ReactLEDPersonalLambda-${env}")
 }

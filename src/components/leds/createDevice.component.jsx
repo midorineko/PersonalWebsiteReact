@@ -2,26 +2,39 @@ import {useState} from 'react'
 import { graphqlOperation } from "aws-amplify";
 import { createNewDevice } from "../../graphql/mutations";
 import { API } from "aws-amplify";
+import UpdateDevices from './updateDevices.component.jsx'
 
 
-const CreateDevice = ({devices, email, customAdminUrl}) => {
+const CreateDevice = ({devices, email, customAdminUrl, reloadDevices}) => {
     const [newDevice, setNewDevice] = useState(false);
+    const [createErrorMsg, setCreateErrorMsg] = useState('');
 
 
     const submitNewDevice = async (event) => {
         event.preventDefault();
         const deviceName = event.target['deviceName'].value;
-        const deviceEmail = email.replace(/[^a-zA-Z0-9 ]/g, '');
-        const deviceId = deviceEmail + event.target['deviceId'].value;
-        devices['customAdminUrl'] = {thing: customAdminUrl};
-        const submitDeviceReturn = await API.graphql(
-            graphqlOperation(createNewDevice, { email: email, thingName: deviceName, thingId: deviceId, devices: JSON.stringify(devices) })
-        );
-        console.log(submitDeviceReturn)
+        if(deviceName.length < 3){
+            setCreateErrorMsg('Device Name Needs To Be Atleast 3 Characters');
+        }else if(devices[deviceName]){
+            setCreateErrorMsg('Duplicate Device, Try Updating It');
+        }else{
+            setCreateErrorMsg('');
+            const deviceEmail = email.replace(/[^a-zA-Z0-9 ]/g, '');
+            const deviceId = deviceEmail + event.target['deviceId'].value;
+            devices['customAdminUrl'] = {thing: customAdminUrl};
+            const submitDeviceReturn = await API.graphql(
+                graphqlOperation(createNewDevice, { email: email, thingName: deviceName, thingId: deviceId, devices: JSON.stringify(devices) })
+            );
+            console.log(submitDeviceReturn)
+            reloadDevices();
+        }
     }
     return(
         <>
             <button onClick={() => setNewDevice(!newDevice)}>New Device</button>
+            <UpdateDevices devices={devices} email={email} customAdminUrl={customAdminUrl} reloadDevices={reloadDevices}/>
+
+            {createErrorMsg ? <div>{createErrorMsg}</div> : null}
             {newDevice ?
                 <form onSubmit={submitNewDevice}>
                     <label>

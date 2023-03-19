@@ -4,12 +4,11 @@
  * @type {import('@types/aws-lambda').APIGatewayProxyHandler}
  */
 const AWS = require('aws-sdk');
-const documentClient = new AWS.DynamoDB.DocumentClient();
 const getAllLEDs = require('./getAllLeds.js');
 const setLedScene = require('./setLedScene.js');
 const createNewDevice = require('./createNewDevice.js')
 const dynamodb = new AWS.DynamoDB({apiVersion: '2012-08-10'});
-
+const updateDevices = require('./updateDevices.js')
 
 
 exports.handler = async (event) => {
@@ -31,34 +30,21 @@ exports.handler = async (event) => {
             return {error: err};
         }
     }else if(event.fieldName === 'createNewDevice'){
-        const devices = JSON.parse(event.arguments.devices);
-        const uniq_id = event.arguments.thingId;
-        const uniq_name = event.arguments.thingName;
-        const email = event.arguments.email;
-        devices[uniq_name] = {thing: uniq_id}
-
-        const obj = {
-            email: 'mrcatnaps@gmail.com',
-            ...devices
-         };
-         console.log(obj)
-         var params = {
-            'TableName':'LED_Hub',
-            'Item': {
-              ...obj
-            },
-        };
-        const putItem = await documentClient.put(params).promise();
-        console.log(putItem);
-        return putItem
-      
-        // try{
-        //     const data = await createNewDevice(event);
-        //     console.log("return data: ", data)
-        //     return JSON.stringify(data);
-        // }catch(err){
-        //     return {error: err};
-        // }
+        try{
+            const data = await createNewDevice(event);
+            console.log("return data: ", data)
+            return JSON.stringify(data);
+        }catch(err){
+            return {error: err};
+        }
+    }else if(event.fieldName === 'updateDevices'){
+        try{
+            const data = await updateDevices(event);
+            console.log("return data: ", data)
+            return JSON.stringify(data);
+        }catch(err){
+            return {error: err};
+        }
     }else{
         return 'Query Not Found'
     }

@@ -25,15 +25,15 @@ const LEDs = ({user}) => {
   const [adminUrl, setAdminUrl] = useState('');
   const email = user.attributes.email;
   const [selectedDevices, setSelectedDevices] = useState({})
+  const [devicesPulled, setDevicesPulled] = useState(false);
 
 
   useEffect(() => {
     fetchLEDs(email).then((res)=>{
       const {customAdminUrl, allLedObject} = res;
-      console.log(allLedObject)
       setAdminUrl(customAdminUrl);
-      console.log(allLedObject)
       setAllLeds(allLedObject);
+      setDevicesPulled(true);
     });
   }, []);
 
@@ -48,13 +48,25 @@ const LEDs = ({user}) => {
     setSelectedDevices({...selectedDevices})
   }
 
+  const reloadDevices = () =>{
+    fetchLEDs(email).then((res)=>{
+      const {customAdminUrl, allLedObject} = res;
+      setAdminUrl(customAdminUrl);
+      setAllLeds(allLedObject);
+    });
+  }
+
 
   return (
     <View className="App">
       <button onClick={() => Auth.signOut()}>Sign Out</button>
-      <CreateDevice devices={allLeds} email={email} customAdminUrl={adminUrl}/>
+      {devicesPulled ? 
+        <>
+          <CreateDevice devices={allLeds} email={email} customAdminUrl={adminUrl} reloadDevices={reloadDevices}/>
+        </>
+      : null }
       <br></br><br></br>
-      {!allLeds ? 'Loading Devices...' : Object.keys(allLeds).map((key, i)=>{
+      {!devicesPulled ? 'Loading Devices...' : Object.keys(allLeds).map((key, i)=>{
         return <button className={selectedDevices[key] ? 'deviceSelected': null } key={`${i}device`} onClick={deviceClick}>{key}</button>
       })}
       <br></br><br></br>

@@ -16,3 +16,8 @@ export const createNewDevice = /* GraphQL */ `
     )
   }
 `;
+export const updateDevices = /* GraphQL */ `
+  mutation UpdateDevices($email: String, $devices: String) {
+    updateDevices(email: $email, devices: $devices)
+  }
+`;
