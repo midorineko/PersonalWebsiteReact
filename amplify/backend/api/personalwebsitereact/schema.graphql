@@ -6,3 +6,7 @@ type Query{
   getAllLeds(email: String): String @function(name: "ReactLEDPersonalLambda-${env}")
   setLedScene(things: String): String @function(name: "ReactLEDPersonalLambda-${env}")
 }
+
+type Mutation {
+	createNewDevice(email: String, thingName: String, thingId: String): String @function(name: "ReactLEDPersonalLambda-${env}")
+}

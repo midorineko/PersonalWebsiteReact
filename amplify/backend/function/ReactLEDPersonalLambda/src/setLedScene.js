@@ -1,31 +1,33 @@
 const AWS = require('aws-sdk');
-const docClient = new AWS.DynamoDB.DocumentClient();
 var keys = require('./keys')
 var iotData = new AWS.IotData({endpoint: keys.iotendpoint});
 
 const setLedScene = async (things) =>{
-    let send_text = 'rainbow';
-    let thing = 'steveninouye91gmailcom1'
-
+    things = JSON.parse(things);
+    thingKeys = Object.keys(things);
+    const send_text = things[thingKeys[0]]
     var payloadObj={ "state":
-                        { "desired":
-                                {"scene":send_text}
-                        }
-                };
+        { "desired":
+                {"scene":send_text}
+        }
+    };
     var shadowParams = {
-        "thingName" : thing,
+        "thingName" : thingKeys[0],
         "payload" : JSON.stringify(payloadObj)
     };
-    console.log("params: ", shadowParams)
-    let updateShadow = await iotData.updateThingShadow(shadowParams).promise()
+    await iotData.updateThingShadow(shadowParams).promise()
         .then(res => {
-            console.log("shadow return: ", res);
-            return "Successfully Set Scene"
+            delete things[thingKeys[0]]
+            if(Object.keys(things).length > 0 ){
+                return setLedScene(JSON.stringify(things));
+            }else{
+                console.log("shadow return: ", res);
+                return "Successfully Set Scene"
+            }
         })
         .catch(err => {
             console.error(err);
             return err
         });
-    return (updateShadow);
 }
 module.exports = setLedScene;

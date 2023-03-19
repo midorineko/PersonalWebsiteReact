@@ -4,24 +4,20 @@
  * @type {import('@types/aws-lambda').APIGatewayProxyHandler}
  */
 const AWS = require('aws-sdk');
-const docClient = new AWS.DynamoDB.DocumentClient();
+const documentClient = new AWS.DynamoDB.DocumentClient();
 const getAllLEDs = require('./getAllLeds.js');
 const setLedScene = require('./setLedScene.js');
+const createNewDevice = require('./createNewDevice.js')
+const dynamodb = new AWS.DynamoDB({apiVersion: '2012-08-10'});
+
 
 
 exports.handler = async (event) => {
     console.log(event);
 
-    const params = {
-        TableName: 'LED_Hub',
-        Key:{
-            email: event.arguments.email
-        }
-    }
-
     if(event.fieldName ===  'getAllLeds'){
         try{
-            const data = await getAllLEDs(params);
+            const data = await getAllLEDs(event);
             return JSON.stringify(data);
         }catch(err){
             return {error: err};
@@ -34,6 +30,28 @@ exports.handler = async (event) => {
         }catch(err){
             return {error: err};
         }
+    }else if(event.fieldName === 'createNewDevice'){
+        const obj = {
+            email: 'mrcatnaps@gmail.com',
+         };
+         obj['thingName'] = {'thing': 'meowmix'}
+         var params = {
+            'TableName':'LED_Hub',
+            'Item': {
+              ...obj
+            },
+        };
+        const putItem = await documentClient.put(params).promise();
+        console.log(putItem);
+        return putItem
+      
+        // try{
+        //     const data = await createNewDevice(event);
+        //     console.log("return data: ", data)
+        //     return JSON.stringify(data);
+        // }catch(err){
+        //     return {error: err};
+        // }
     }else{
         return 'Query Not Found'
     }
