@@ -4,7 +4,7 @@ import { createNewDevice } from "../../graphql/mutations";
 import { API } from "aws-amplify";
 
 
-const CreateDevice = ({devices, email}) => {
+const CreateDevice = ({devices, email, customAdminUrl}) => {
     const [newDevice, setNewDevice] = useState(false);
 
 
@@ -13,8 +13,9 @@ const CreateDevice = ({devices, email}) => {
         const deviceName = event.target['deviceName'].value;
         const deviceEmail = email.replace(/[^a-zA-Z0-9 ]/g, '');
         const deviceId = deviceEmail + event.target['deviceId'].value;
+        devices['customAdminUrl'] = {thing: customAdminUrl};
         const submitDeviceReturn = await API.graphql(
-            graphqlOperation(createNewDevice, { email: email, thingName: deviceName, thingId: deviceId })
+            graphqlOperation(createNewDevice, { email: email, thingName: deviceName, thingId: deviceId, devices: JSON.stringify(devices) })
         );
         console.log(submitDeviceReturn)
     }

@@ -31,10 +31,17 @@ exports.handler = async (event) => {
             return {error: err};
         }
     }else if(event.fieldName === 'createNewDevice'){
+        const devices = JSON.parse(event.arguments.devices);
+        const uniq_id = event.arguments.thingId;
+        const uniq_name = event.arguments.thingName;
+        const email = event.arguments.email;
+        devices[uniq_name] = {thing: uniq_id}
+
         const obj = {
             email: 'mrcatnaps@gmail.com',
+            ...devices
          };
-         obj['thingName'] = {'thing': 'meowmix'}
+         console.log(obj)
          var params = {
             'TableName':'LED_Hub',
             'Item': {

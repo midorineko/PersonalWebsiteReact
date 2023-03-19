@@ -6,7 +6,13 @@ export const createNewDevice = /* GraphQL */ `
     $email: String
     $thingName: String
     $thingId: String
+    $devices: String
   ) {
-    createNewDevice(email: $email, thingName: $thingName, thingId: $thingId)
+    createNewDevice(
+      email: $email
+      thingName: $thingName
+      thingId: $thingId
+      devices: $devices
+    )
   }
 `;

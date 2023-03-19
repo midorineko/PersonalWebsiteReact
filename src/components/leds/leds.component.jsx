@@ -32,6 +32,7 @@ const LEDs = ({user}) => {
       const {customAdminUrl, allLedObject} = res;
       console.log(allLedObject)
       setAdminUrl(customAdminUrl);
+      console.log(allLedObject)
       setAllLeds(allLedObject);
     });
   }, []);
@@ -51,7 +52,7 @@ const LEDs = ({user}) => {
   return (
     <View className="App">
       <button onClick={() => Auth.signOut()}>Sign Out</button>
-      <CreateDevice devices={allLeds} email={email}/>
+      <CreateDevice devices={allLeds} email={email} customAdminUrl={adminUrl}/>
       <br></br><br></br>
       {!allLeds ? 'Loading Devices...' : Object.keys(allLeds).map((key, i)=>{
         return <button className={selectedDevices[key] ? 'deviceSelected': null } key={`${i}device`} onClick={deviceClick}>{key}</button>
