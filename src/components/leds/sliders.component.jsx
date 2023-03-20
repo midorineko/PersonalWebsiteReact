@@ -1,8 +1,7 @@
-import {useState, useCallback } from 'react'
-import debounceFn from './leds.script';
+import { useState } from 'react'
 
 const Sliders = ({setSliders}) => {
-    const [brightnessValue, setBrightnessValue] = useState(100);
+    const [brightnessValue, setBrightnessValue] = useState(75);
     const [framesValue, setFramesValue] = useState(50);
     const [groupValue, setGroupValue] = useState(25);
 
@@ -46,6 +45,7 @@ const Sliders = ({setSliders}) => {
 
                 <button className={showGroups ? 'deviceSelected deviceButtons': 'deviceButtons' } value="color1=#000000" onClick={(e => openSlider('group'))}>Groups</button>
                 {showBright ? <input
+                        className="rangeBars"
                         type="range"
                         min="0"
                         max='100'
@@ -55,6 +55,7 @@ const Sliders = ({setSliders}) => {
                     />
                 : null}
                 {showFrames ? <input
+                    className="rangeBars"
                     type="range"
                     min="0"
                     max='100'
@@ -64,6 +65,7 @@ const Sliders = ({setSliders}) => {
                 />
                 : null}
                 {showGroups ? <input
+                    className="rangeBars"
                     type="range"
                     min="0"
                     max='100'

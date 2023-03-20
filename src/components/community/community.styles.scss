@@ -1,6 +1,5 @@
 .communityContainer{
-    height: 100vh;
-    // width: 100vw;
+    min-height: 100vh;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -11,25 +10,27 @@
 }
 
 .communityTitle{
-    font-size: 5em;
+    font-size: 4em;
     margin-bottom: 2vh;
     text-align: center;
-}
-
-.communityParagraphContainer{
-    width: 60%;
-
-}
-
-.communityParagraphContainer{
-    p{
-        text-align: center;
-    }
 }
 
 .communityLinksContainer{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-evenly;
+}
+
+.communityLinks{
+    width: 40%;
+}
+
+.communityNameAndImage{
+    width: 100%
+}
+
+.communityImage{
+    width: 100%;
+    border-radius: 5%;
 }

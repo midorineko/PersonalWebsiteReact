@@ -13,11 +13,10 @@ const CommunityLinks = ({communities}) => {
                     let image = community.location;
                     let name = community.name
                     return(
-                        <div key={communityInd} style={{width: '15vw', marginRight: '2vw'}}>
-                            <div >
-                                <h3 style={{marginBottom: '0px'}}>{name}</h3>
-                                <img style={{width: '100%', borderRadius: '10%'}} src={require(`../../assets/images/${name.toLowerCase()}.png`)} alt={name} />
-                                <div>{community.description}</div>
+                        <div className="communityLinks" key={`community ${communityInd}`}>
+                            <div className="communityNameAndImage">
+                                <h3>{name}</h3>
+                                <img className="communityImage" src={require(`../../assets/images/${name.toLowerCase()}.png`)} alt={name} />
                             </div>
                         </div>
                     )

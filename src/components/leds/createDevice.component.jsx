@@ -29,20 +29,26 @@ const CreateDevice = ({devices, email, customAdminUrl, reloadDevices, newDevice}
     }
     return(
         <>
-            {createErrorMsg ? <div>{createErrorMsg}</div> : null}
-            {newDevice ?
-                <form onSubmit={submitNewDevice}>
-                    <label>
-                        Device Name:
-                        <input type="text" name="deviceName" />
-                    </label>
-                    <label>
-                        ID:
-                        <input type="text" name="deviceId" value={Object.keys(devices).length+1} disabled/>
-                    </label>
-                    <input type="submit" value="Submit" />
-                </form>
-            : null }
+                {createErrorMsg ? <div>{createErrorMsg}</div> : null}
+                {newDevice ?
+                    <form onSubmit={submitNewDevice}>
+                        <div className="updateDeviceFormItem">
+                            <label>
+                                Device Name:
+                                <input type="text" name="deviceName" />
+                            </label>
+                        </div>
+                        <div className="updateDeviceFormItem">
+                            <label>
+                                ID:
+                                <input type="text" name="deviceId" value={Object.keys(devices).length+1} disabled/>
+                            </label>
+                        </div>
+                        <div className="updateDeviceFormItem">
+                            <input className='submitButton' type="submit" value="Submit" />
+                        </div>
+                    </form>
+                : null }
 
         </>
     )

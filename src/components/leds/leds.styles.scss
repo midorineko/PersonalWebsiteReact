@@ -79,6 +79,11 @@
     align-items: flex-end;
 }
 
+.updateDeviceFormItem{
+    display: flex;
+    justify-content: flex-end;
+}
+
 .updateInputs{
     display: flex;
 }
@@ -100,6 +105,18 @@
     border: 1px solid #FFE8FF;
     background-color: #b691ff;
     cursor: pointer;
+}
+
+.submitButton{
+    width: 246px;
+    border: 1px solid #FFE8FF;
+    background-color: #b691ff;
+    cursor: pointer;
+}
+
+.rangeBars{
+    width: 80% !important; 
+    height: 30px; 
 }
 // .createUpdateContainer{
 //     display: flex;

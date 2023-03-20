@@ -5,6 +5,7 @@ import Navigation from './components/navigation/navigation.component'
 import Home from './components/home/home.component'
 import About from './components/about/about.component'
 import BackgroundImage from './components/backgroundImage/BackgroundImage.component';
+import Community from './components/community/community.component';
 import { Amplify } from 'aws-amplify';
 import awsconfig from './aws-exports';
 import LedLoginCheck from './components/login/ledLoginCheck.component';
@@ -40,7 +41,9 @@ function App() {
       <Route path='/' element={<Navigation/>}>
         <Route path='' element={<BackgroundImage/>}>
           <Route path='' element={<Home/>}>
-            <Route path='' element={<About/>}/>
+            <Route path='' element={<About/>}>
+              <Route path='' element={<Community/>} />
+            </Route>
           </Route>
         </Route>
       </Route>

@@ -1,20 +1,9 @@
 import React, { useState, useEffect } from "react";
 
 import "@aws-amplify/ui-react/styles.css";
-import {
-  Button,
-  Flex,
-  Heading,
-  Text,
-  TextField,
-  View,
-  withAuthenticator
-} from "@aws-amplify/ui-react";
-import { getAllLeds } from "../../graphql/queries";
-import { Auth, graphqlOperation } from "aws-amplify";
-import { API } from "aws-amplify";
+import { View } from "@aws-amplify/ui-react";
+import { Auth } from "aws-amplify";
 import fetchLEDs from './fetchLeds.script';
-import SetLedScene from './setLedScene.script';
 import "./leds.styles.scss";
 import Scenes from './scenes.component.jsx';
 import CreateDevice from './createDevice.component.jsx';
@@ -78,9 +67,7 @@ const LEDs = ({user}) => {
       </div>
 
       <div className="createDeviceForm">
-        <div>
-          <CreateDevice newDevice={newDevice} devices={allLeds} email={email} customAdminUrl={adminUrl} reloadDevices={reloadDevices}/>
-        </div>
+        <CreateDevice newDevice={newDevice} devices={allLeds} email={email} customAdminUrl={adminUrl} reloadDevices={reloadDevices}/>
       </div>
       <div className="updateDeviceForm">
         <UpdateDevices openUpdate={openUpdate} devices={allLeds} email={email} customAdminUrl={adminUrl} reloadDevices={reloadDevices}/>

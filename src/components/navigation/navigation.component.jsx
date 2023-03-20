@@ -23,7 +23,7 @@ const Navigation = () => {
     return(
         <>
         <nav className="navigation">
-            <a href="#" className="brand-name" onClick={(e) => {
+            <a href="/" className="brand-name" onClick={(e) => {
                         e.preventDefault();
                         scrollTo('homeContainer');
                     }}>
@@ -55,12 +55,13 @@ const Navigation = () => {
             >
                 <ul>
                 <li>
-                    <a href="#" onClick={() => {
+                    <a className='navBarLinks' href="/" onClick={(e) => {
+                            e.preventDefault();
                             scrollTop();
                         }}><span>Photos</span></a>
                 </li>
                 <li>
-                    <a href="#" onClick={(e) => {
+                    <a className='navBarLinks' href="/" onClick={(e) => {
                         e.preventDefault();
                         scrollTo('aboutContainer');
                     }}><span>About</span></a>
@@ -69,7 +70,7 @@ const Navigation = () => {
                     <a href="/contact">Contact</a>
                 </li> */}
                 <li>
-                    <a href="/leds">LEDs</a>
+                    <a className='navBarLinks' href="/leds">LEDs</a>
                 </li>
                 </ul>
             </div>

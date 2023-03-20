@@ -1,10 +1,5 @@
 import CommunityLinks from './communityLinks.component'
 import './community.styles.scss'
-import  RedditImg  from '../../assets/images/reddit.png';
-import  ThingiverseImg  from '../../assets/images/thingiverse.png';
-import  GithubImg  from '../../assets/images/github.png';
-import  YoutubeImg  from '../../assets/images/youtube.png';
-import { Auth } from 'aws-amplify'
 
 const Community = () => {
     let communities = [
@@ -19,7 +14,7 @@ const Community = () => {
             <div>
                 <h1 className='communityTitle'>Communities</h1>
             </div>
-            <div className='communityLinksContainer' style={{width: '40vw', marginLeft: '20px', textAlign: 'center'}}>
+            <div className='communityLinksContainer'>
                 <CommunityLinks communities={communities}></CommunityLinks>
             </div>
         </div>
