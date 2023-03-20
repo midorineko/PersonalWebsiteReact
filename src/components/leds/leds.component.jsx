@@ -30,6 +30,7 @@ const LEDs = ({user}) => {
   const [devicesPulled, setDevicesPulled] = useState(false);
   const [newDevice, setNewDevice] = useState(false);
   const [openUpdate, setOpenUpdate] = useState(false);
+  const [showDevices, setShowDevices] = useState(true);
 
 
   useEffect(() => {
@@ -85,15 +86,17 @@ const LEDs = ({user}) => {
         <UpdateDevices openUpdate={openUpdate} devices={allLeds} email={email} customAdminUrl={adminUrl} reloadDevices={reloadDevices}/>
       </div>
 
-      <h2 className="centerText">Devices</h2>
-      <div className='buttonContainers'>
-        {!devicesPulled ? <h2 className="centerText">Loading Devices...</h2> : Object.keys(allLeds).map((key, i)=>{
-            return (
-              <button className={selectedDevices[key] ? 'deviceSelected deviceButtons': 'deviceButtons' } key={`${i}device`} onClick={deviceClick}>{key}</button>
-            )
-          })}
-          {devicesPulled && Object.keys(allLeds).length ===0 ? <h2 className="centerText">Create A Device</h2> : null}
-      </div>
+      <h2 className="centerText clickable" onClick={e=>setShowDevices(!showDevices)}>{showDevices ? 'Hide Devices' : 'Show Devices' }</h2>
+      {showDevices ? 
+        <div className='buttonContainers'>
+          {!devicesPulled ? <h2 className="centerText">Loading Devices...</h2> : Object.keys(allLeds).map((key, i)=>{
+              return (
+                <button className={selectedDevices[key] ? 'deviceSelected deviceButtons': 'deviceButtons' } key={`${i}device`} onClick={deviceClick}>{key}</button>
+              )
+            })}
+            {devicesPulled && Object.keys(allLeds).length ===0 ? <h2 className="centerText">Create A Device</h2> : null}
+        </div>
+      : null }
       <br></br>
       <h2 className="centerText">Device Control</h2>
       <Scenes selectedDevices={selectedDevices} />
