@@ -28,6 +28,8 @@ const LEDs = ({user}) => {
   const email = user.attributes.email;
   const [selectedDevices, setSelectedDevices] = useState({})
   const [devicesPulled, setDevicesPulled] = useState(false);
+  const [newDevice, setNewDevice] = useState(false);
+  const [openUpdate, setOpenUpdate] = useState(false);
 
 
   useEffect(() => {
@@ -53,6 +55,7 @@ const LEDs = ({user}) => {
   const reloadDevices = () =>{
     fetchLEDs(email).then((res)=>{
       const {customAdminUrl, allLedObject} = res;
+      setOpenUpdate(false);
       setAdminUrl(customAdminUrl);
       setAllLeds(allLedObject);
     });
@@ -60,28 +63,39 @@ const LEDs = ({user}) => {
 
 
   return (
-    <View>
+    <View className="ledView">
       <div class="ledNav">
-        <button onClick={() => Auth.signOut()}>Sign Out</button>
+        <button className="signOutButton ledNavButtons" onClick={() => Auth.signOut()}>Sign Out</button>
         <div class="createUpdateContainer">
           {devicesPulled ? 
             <>  
-                <div className="createDeviceForm">
-                  <CreateDevice devices={allLeds} email={email} customAdminUrl={adminUrl} reloadDevices={reloadDevices}/>
-                </div>
-                <div className="updateDeviceForm">
-                  <UpdateDevices devices={allLeds} email={email} customAdminUrl={adminUrl} reloadDevices={reloadDevices}/>
-                </div>
+                <button className="createDeviceButton ledNavButtons" onClick={() => setNewDevice(!newDevice)}>New Device</button>
+                <button className="updateDeviceButton ledNavButtons" onClick={(()=>setOpenUpdate(!openUpdate))}>Update Devices</button>
             </>
           : null }
         </div>
       </div>
 
-      <br></br><br></br>
-      {!devicesPulled ? 'Loading Devices...' : Object.keys(allLeds).map((key, i)=>{
-        return <button className={selectedDevices[key] ? 'deviceSelected': null } key={`${i}device`} onClick={deviceClick}>{key}</button>
-      })}
-      <br></br><br></br>
+      <div className="createDeviceForm">
+        <div>
+          <CreateDevice newDevice={newDevice} devices={allLeds} email={email} customAdminUrl={adminUrl} reloadDevices={reloadDevices}/>
+        </div>
+      </div>
+      <div className="updateDeviceForm">
+        <UpdateDevices openUpdate={openUpdate} devices={allLeds} email={email} customAdminUrl={adminUrl} reloadDevices={reloadDevices}/>
+      </div>
+
+      <h2 class="centerText">Devices</h2>
+      <div class='buttonContainers'>
+        {!devicesPulled ? <h2 class="centerText">Loading Devices...</h2> : Object.keys(allLeds).map((key, i)=>{
+            return (
+              <button className={selectedDevices[key] ? 'deviceSelected deviceButtons': 'deviceButtons' } key={`${i}device`} onClick={deviceClick}>{key}</button>
+            )
+          })}
+          {devicesPulled && Object.keys(allLeds).length ===0 ? <h2 class="centerText">Create A Device</h2> : null}
+      </div>
+      <br></br>
+      <h2 class="centerText">Device Control</h2>
       <Scenes selectedDevices={selectedDevices} />
     </View>
   );

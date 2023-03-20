@@ -1,3 +1,44 @@
+.ledView{
+    background-color: #FFE8FF;
+    height: 100vh;
+    font-family: 'Patua One', cursive;
+    font-size: 20px;
+}
+
+.signOutButton{
+    width: 100px;
+}
+
+.createDeviceButton{
+    width: 100px;
+}
+
+.updateDeviceButton{
+    width: 140px;
+}
+
+.ledNavButtons{
+    border: 1px solid #FFE8FF;
+    height: 50px;
+    background-color: #b691ff;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.buttonContainers{
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.deviceButtons{
+    height: 50px;
+    border: 1px solid #b691ff;
+    cursor: pointer;
+    min-width: 200px;
+    margin-bottom: 10px;
+}
+
 .deviceSelected{
     background-color: #b691ff;
 }
@@ -23,12 +64,23 @@
     align-items: flex-end;
 }
 
-.createDeviceButton{
+.updateInputs{
+    display: flex;
+}
+
+.updateDeviceId{
     width: 100px;
 }
 
-.updateDeviceButton{
-    width: 140px;
+.centerText{
+    text-align: center;
+}
+
+.updateButton{
+    width: 100%;
+    border: 1px solid #FFE8FF;
+    background-color: #b691ff;
+    cursor: pointer;
 }
 // .createUpdateContainer{
 //     display: flex;

@@ -5,8 +5,7 @@ import { API } from "aws-amplify";
 import UpdateDevices from './updateDevices.component.jsx'
 
 
-const CreateDevice = ({devices, email, customAdminUrl, reloadDevices}) => {
-    const [newDevice, setNewDevice] = useState(false);
+const CreateDevice = ({devices, email, customAdminUrl, reloadDevices, newDevice}) => {
     const [createErrorMsg, setCreateErrorMsg] = useState('');
 
 
@@ -31,7 +30,6 @@ const CreateDevice = ({devices, email, customAdminUrl, reloadDevices}) => {
     }
     return(
         <>
-            <button onClick={() => setNewDevice(!newDevice)}>New Device</button>
             {createErrorMsg ? <div>{createErrorMsg}</div> : null}
             {newDevice ?
                 <form onSubmit={submitNewDevice}>

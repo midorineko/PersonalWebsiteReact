@@ -24,11 +24,17 @@ const Scenes = ({selectedDevices}) => {
 
     return (
         <>
-            {
-                Object.keys(scenes).map((key, i)=>{
-                    return <button key={`scenes${i}`} onClick={setScene} value={key}>{scenes[key]}</button>
-                })
-            }
+            <div class='buttonContainers'>
+                <button className='deviceButtons' value="color1=#ffffff" onClick={setScene}>On</button>
+                <button className='deviceButtons' value="color1=#000000" onClick={setScene}>Off</button>
+            </div>
+            <div class='buttonContainers'>
+                {
+                    Object.keys(scenes).map((key, i)=>{
+                        return <button className='deviceButtons' key={`scenes${i}`} onClick={setScene} value={key}>{scenes[key]}</button>
+                    })
+                }
+            </div>
         </>
     )
 }
