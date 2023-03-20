@@ -2,7 +2,6 @@ import {useState} from 'react'
 import { graphqlOperation } from "aws-amplify";
 import { createNewDevice } from "../../graphql/mutations";
 import { API } from "aws-amplify";
-import UpdateDevices from './updateDevices.component.jsx'
 
 
 const CreateDevice = ({devices, email, customAdminUrl, reloadDevices, newDevice}) => {
