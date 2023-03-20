@@ -1,3 +1,36 @@
 .deviceSelected{
     background-color: #b691ff;
 }
+
+.ledNav{
+    display: flex;
+    justify-content: space-between;
+}
+
+.createUpdateContainer{
+    display: flex;
+    justify-content: flex-end;
+}
+.createDeviceForm{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.updateDeviceForm{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.createDeviceButton{
+    width: 100px;
+}
+
+.updateDeviceButton{
+    width: 140px;
+}
+// .createUpdateContainer{
+//     display: flex;
+//     flex-direction: column;
+// }

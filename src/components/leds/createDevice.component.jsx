@@ -32,8 +32,6 @@ const CreateDevice = ({devices, email, customAdminUrl, reloadDevices}) => {
     return(
         <>
             <button onClick={() => setNewDevice(!newDevice)}>New Device</button>
-            <UpdateDevices devices={devices} email={email} customAdminUrl={customAdminUrl} reloadDevices={reloadDevices}/>
-
             {createErrorMsg ? <div>{createErrorMsg}</div> : null}
             {newDevice ?
                 <form onSubmit={submitNewDevice}>
@@ -48,6 +46,7 @@ const CreateDevice = ({devices, email, customAdminUrl, reloadDevices}) => {
                     <input type="submit" value="Submit" />
                 </form>
             : null }
+
         </>
     )
 }

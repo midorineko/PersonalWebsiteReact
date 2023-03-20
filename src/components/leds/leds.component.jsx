@@ -13,11 +13,13 @@ import {
 import { getAllLeds } from "../../graphql/queries";
 import { Auth, graphqlOperation } from "aws-amplify";
 import { API } from "aws-amplify";
-import fetchLEDs from './fetchLeds.script'
-import SetLedScene from './setLedScene.script'
-import "./leds.styles.scss"
-import Scenes from './scenes.component.jsx'
-import CreateDevice from './createDevice.component.jsx'
+import fetchLEDs from './fetchLeds.script';
+import SetLedScene from './setLedScene.script';
+import "./leds.styles.scss";
+import Scenes from './scenes.component.jsx';
+import CreateDevice from './createDevice.component.jsx';
+import UpdateDevices from './updateDevices.component.jsx';
+
 
 
 const LEDs = ({user}) => {
@@ -58,13 +60,23 @@ const LEDs = ({user}) => {
 
 
   return (
-    <View className="App">
-      <button onClick={() => Auth.signOut()}>Sign Out</button>
-      {devicesPulled ? 
-        <>
-          <CreateDevice devices={allLeds} email={email} customAdminUrl={adminUrl} reloadDevices={reloadDevices}/>
-        </>
-      : null }
+    <View>
+      <div class="ledNav">
+        <button onClick={() => Auth.signOut()}>Sign Out</button>
+        <div class="createUpdateContainer">
+          {devicesPulled ? 
+            <>  
+                <div className="createDeviceForm">
+                  <CreateDevice devices={allLeds} email={email} customAdminUrl={adminUrl} reloadDevices={reloadDevices}/>
+                </div>
+                <div className="updateDeviceForm">
+                  <UpdateDevices devices={allLeds} email={email} customAdminUrl={adminUrl} reloadDevices={reloadDevices}/>
+                </div>
+            </>
+          : null }
+        </div>
+      </div>
+
       <br></br><br></br>
       {!devicesPulled ? 'Loading Devices...' : Object.keys(allLeds).map((key, i)=>{
         return <button className={selectedDevices[key] ? 'deviceSelected': null } key={`${i}device`} onClick={deviceClick}>{key}</button>

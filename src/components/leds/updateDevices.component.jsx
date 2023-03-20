@@ -26,7 +26,7 @@ const UpdateDevices = ({devices, email, customAdminUrl, reloadDevices}) => {
     }
     return (
         <>
-            <button onClick={(()=>setOpenUpdate(!openUpdate))}>Update Devices</button>
+            <button className="updateDeviceButton" onClick={(()=>setOpenUpdate(!openUpdate))}>Update Devices</button>
             {openUpdate ? 
                 <form onSubmit={updatingDevices}>
                         {Object.keys(devices).map((device, i)=>{
