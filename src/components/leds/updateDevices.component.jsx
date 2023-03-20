@@ -10,14 +10,17 @@ const UpdateDevices = ({devices, email, customAdminUrl, reloadDevices, openUpdat
     const updatingDevices = async (e) => {
         e.preventDefault();
         const devicesToUpdate = {};
+        const allIds =  document.querySelectorAll('.updateIds');
+        console.log(allIds)
         e.target['devices'].forEach((device, i)=>{
             if(device.value){
                 const oldName = device.getAttribute('oldname');
                 delete devices[oldName]
-                devices[device.value] = {thing: e.target['devicesId'][i].value}
+                devices[device.value] = {thing: allIds[i].getAttribute('value')}
             }
         })
         devices['customAdminUrl'] = {thing: customAdminUrl};
+        console.log(devices)
         const updateDevicesReturn = await API.graphql(
             graphqlOperation(updateDevices, { email: email, devices: JSON.stringify(devices) })
         );
@@ -37,7 +40,7 @@ const UpdateDevices = ({devices, email, customAdminUrl, reloadDevices, openUpdat
                             return(
                                 <div className="updateInputs" key={`updatedevices${i}`}>
                                     <input type="text" name='devices' oldname={device} placeholder={device} />
-                                    <div className="centerText updateDeviceId" type="text" name='devicesId' value={devices[device].thing} > {devices[device].thing.replace(deviceEmail,"")}</div>
+                                    <div className="centerText updateDeviceId updateIds" type="text" name='devicesId' value={devices[device].thing} > {devices[device].thing.replace(deviceEmail,"")}</div>
                                 </div>
                             )
                         })}
