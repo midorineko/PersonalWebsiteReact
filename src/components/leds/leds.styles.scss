@@ -48,6 +48,22 @@
     font-family: 'Patua One', cursive;
 }
 
+.sceneSelectedButton{
+    animation: fadeInOut .5s linear forwards;
+}
+ 
+@keyframes fadeInOut {
+    0% {
+        background-color: #F9F3E6;
+    }
+    50% {
+        background-color: #b691ff;
+    }
+    100% {
+        background-color: #F9F3E6;
+    }
+  }
+
 @media screen and (min-width: 630px) {
     .deviceButtons {
        font-size: 24px;

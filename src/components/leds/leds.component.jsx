@@ -20,6 +20,7 @@ const LEDs = ({user}) => {
   const [newDevice, setNewDevice] = useState(false);
   const [openUpdate, setOpenUpdate] = useState(false);
   const [showDevices, setShowDevices] = useState(true);
+  const [pullDeviceError, setPullDeviceError] = useState(false);
 
 
   useEffect(() => {
@@ -28,6 +29,10 @@ const LEDs = ({user}) => {
       setAdminUrl(customAdminUrl);
       setAllLeds(allLedObject);
       setDevicesPulled(true);
+      setPullDeviceError(false);
+    }).catch((err)=>{
+      setDevicesPulled(true);
+      setPullDeviceError(true);
     });
   }, []);
 
@@ -81,7 +86,9 @@ const LEDs = ({user}) => {
                 <button className={selectedDevices[key] ? 'deviceSelected deviceButtons': 'deviceButtons' } key={`${i}device`} onClick={deviceClick}>{key}</button>
               )
             })}
-            {devicesPulled && Object.keys(allLeds).length ===0 ? <h2 className="centerText">Create A Device</h2> : null}
+            {devicesPulled && Object.keys(allLeds).length ===0 &&  !pullDeviceError? <h2 className="centerText">Create A Device</h2> : null}
+            {devicesPulled && Object.keys(allLeds).length ===0 &&  pullDeviceError? <h2 className="centerText">Error Pulling Devices</h2> : null}
+
         </div>
       : null }
       <br></br>

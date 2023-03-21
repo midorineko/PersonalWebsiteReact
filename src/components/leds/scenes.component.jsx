@@ -5,6 +5,7 @@ import debounceFn from './leds.script'
 
 const Scenes = ({selectedDevices}) => {
     const [color, setColor] = useState("#00FFFF");
+    const [sceneSelected, setSceneSelected] = useState('')
 
     const scenes = {   
        "confetti": 'Confetti',
@@ -28,7 +29,12 @@ const Scenes = ({selectedDevices}) => {
     }
 
     const setScene = (event) => {
+        console.log(event.target.value)
+        setSceneSelected(event.target.value)
         sendScene(event.target.value);
+        setTimeout(()=>{
+            setSceneSelected("")
+        },500)
     }
 
     const newColor = (color) => {
@@ -56,7 +62,7 @@ const Scenes = ({selectedDevices}) => {
             <div className='buttonContainers'>
                 {
                     Object.keys(scenes).map((key, i)=>{
-                        return <button className='deviceButtons' key={`scenes${i}`} onClick={setScene} value={key}>{scenes[key]}</button>
+                        return <button className={sceneSelected === key ? 'sceneSelectedButton deviceButtons': 'deviceButtons' } key={`scenes${i}`} onClick={setScene} value={key} id={key}>{scenes[key]}</button>
                     })
                 }
             </div>

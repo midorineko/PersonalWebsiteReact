@@ -1,9 +1,7 @@
-import  RedditImg  from '../../assets/images/reddit.png';
-import  ThingiverseImg  from '../../assets/images/thingiverse.png';
-import  GithubImg  from '../../assets/images/github.png';
-import  YoutubeImg  from '../../assets/images/youtube.png';
-
-
+const openLink = (link) => {
+    console.log(link)
+    window.open(link,'_blank');
+}
 
 const CommunityLinks = ({communities}) => {
     return (
@@ -11,12 +9,13 @@ const CommunityLinks = ({communities}) => {
             {
                 communities.map((community, communityInd) => {
                     let image = community.location;
-                    let name = community.name
+                    let name = community.name;
+                    let link = community.link;
                     return(
                         <div className="communityLinks" key={`community ${communityInd}`}>
                             <div className="communityNameAndImage">
-                                <h3>{name}</h3>
-                                <img className="communityImage" src={require(`../../assets/images/${name.toLowerCase()}.png`)} alt={name} />
+                                <h3 className="centerText">{name}</h3>
+                                <img className="communityImage" onClick={()=>openLink(link)} src={require(`../../assets/images/${name.toLowerCase()}.png`)} alt={name} />
                             </div>
                         </div>
                     )
