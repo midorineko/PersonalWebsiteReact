@@ -62,7 +62,7 @@
     "hostedUIDomainName": "personalwebsitereact1201fea2-1201fea2",
     "authProvidersUserPool": [],
     "hostedUIProviderMeta": "[]",
-    "oAuthMetadata": "{\"AllowedOAuthFlows\":[\"code\"],\"AllowedOAuthScopes\":[\"phone\",\"email\",\"openid\",\"profile\",\"aws.cognito.signin.user.admin\"],\"CallbackURLs\":[\"http://localhost:3000/leds/\",\"https://main.d3asv5ybyyooma.amplifyapp.com/leds/\"],\"LogoutURLs\":[\"http://localhost:3000/leds/\"]}",
-    "authProviders": []
+    "authProviders": [],
+    "oAuthMetadata": "{\"AllowedOAuthFlows\":[\"code\"],\"AllowedOAuthScopes\":[\"phone\",\"email\",\"openid\",\"profile\",\"aws.cognito.signin.user.admin\"],\"CallbackURLs\":[\"http://localhost:3000/leds/\",\"https://main.d3asv5ybyyooma.amplifyapp.com/leds/\",\"https://steveninouye.com/leds/\"],\"LogoutURLs\":[\"http://localhost:3000/leds/\",\"https://main.d3asv5ybyyooma.amplifyapp.com/leds/\",\"https://steveninouye.com/leds/\"]}"
   }
 }

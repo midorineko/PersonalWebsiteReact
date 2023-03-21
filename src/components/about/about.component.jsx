@@ -30,7 +30,7 @@ const About = () => {
                         I love programming because it isn't about memorization, but being able to understand 
                         what to look for. With time I have built the knowledge needed to decipher search results 
                         and apply complex theory to my code. I have applied this philosophy to many projects 
-                        ranging from personal to corporate applications to scale. It has allowed me to program 
+                        ranging from personal to corporate applications at scale. It has allowed me to program 
                         in a variety of languages professionally including Ruby on Rails, Java, NodeJS, and 
                         ReactJS. The main program I built at Amazon was TopOff, a staffing application that 
                         provides headcount for more than 800 stores and produces over a billion dollars annually. 

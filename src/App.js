@@ -29,6 +29,10 @@ if (isLocalhost) {
   awsconfig.oauth.redirectSignIn = signInURI[1]
   awsconfig.oauth.redirectSignOut = signOutURI[1]
   console.log('prod')
+} else if (window.location.hostname.includes('inouye')) {
+  awsconfig.oauth.redirectSignIn = signInURI[2]
+  awsconfig.oauth.redirectSignOut = signOutURI[2]
+  console.log('prod')
 } else {
   console.log('This is not possible')
 }
