@@ -25,12 +25,19 @@ const LEDs = ({user}) => {
 
   useEffect(() => {
     fetchLEDs(email).then((res)=>{
-      const {customAdminUrl, allLedObject} = res;
-      setAdminUrl(customAdminUrl);
-      setAllLeds(allLedObject);
-      setDevicesPulled(true);
-      setPullDeviceError(false);
+      console.log(res)
+      if(res === 'empty'){
+        setDevicesPulled(true);
+        setPullDeviceError(false);
+      }else{
+        const {customAdminUrl, allLedObject} = res;
+        setDevicesPulled(true);
+        setPullDeviceError(false);
+        setAdminUrl(customAdminUrl);
+        setAllLeds(allLedObject);
+      }
     }).catch((err)=>{
+      console.log(err)
       setDevicesPulled(true);
       setPullDeviceError(true);
     });

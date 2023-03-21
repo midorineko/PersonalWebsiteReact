@@ -6,11 +6,16 @@ async function fetchLEDs(email) {
     const allLEDData = await API.graphql(
       graphqlOperation(getAllLeds, { email: email })
     );
-    let allLedObject = JSON.parse(allLEDData.data.getAllLeds).Item;
-    const customAdminUrl = allLedObject['customAdminUrl'];
-    delete allLedObject['email']
-    delete allLedObject['customAdminUrl']
-    return {customAdminUrl: customAdminUrl.thing, allLedObject: allLedObject}
+    if(allLEDData.data.getAllLeds === '{}'){
+      return 'empty'
+    }else{
+      let allLedObject = JSON.parse(allLEDData.data.getAllLeds).Item;
+      console.log(allLEDData)
+      const customAdminUrl = allLedObject['customAdminUrl'];
+      delete allLedObject['email']
+      delete allLedObject['customAdminUrl']
+      return {customAdminUrl: customAdminUrl.thing, allLedObject: allLedObject}
+    }
 }
 
 export default fetchLEDs;
