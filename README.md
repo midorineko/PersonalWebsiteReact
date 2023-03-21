@@ -1,70 +1,38 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# React Personal Site With AWS 
 
-## Available Scripts
+## This Site Contains Two Parts
 
-In the project directory, you can run:
 
-### `npm start`
+## Section 1: Personal Website
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+A React application used to display some of my photos and give a little information about myself.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+**Photos** built on a custom carousel using a simple debounce function to help with multi-clicks during slower loads.
 
-### `npm test`
+**About Me** section to five a little more information about myself as a programmer.  
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+**Community** section to show a some of my activities in various communities.
 
-### `npm run build`
+## Section 2: LED Website
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+This is a fully functional LED website to be paired with my Arduino based LED strips. Handles all types of color, scene, and speed interactions. It uses Amazon SSO since it also directly pairs with Alexa through my custom and home skills. If you are interested in using my system please reach out. I can send out the binary or preloaded Arduinos. 
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Tech Stack: AWS 
+**Amplify** The site is hosted and built on Amplify. Utilizes CFN for Lambda interactions between IoT and DynamoDB.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+**Cognito with  Federate** Using Amazon SSO to auth since the devices are provisioned to be used with Alexa.
 
-### `npm run eject`
+**AppSync & GraphQL** Interactions to the Lambda are done through AppSync resolvers using a GraphQL Schema. 
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+**DynamoDB** NoSQL database used to hold user and information around devices.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+**Lambda** A Node Lambda is used to make calls to IoT Core and DynamoDB.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+**IoT Core** How the site interacts with devices. Creates new devices and provisions them for shadow updates.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Set Up Instructions + Binary
+[Set Up](http://steveninouye.com.s3-website-us-east-1.amazonaws.com/led_setup.html)
+## Simple LED Systems with WiFi Control
+If you are looking for something simpler. Possibly just trying to control a strip of LEDs through an Arduino. Here is a repository with various LED code which host it's own WiFi that you can control through a WiFi enabled device. [Complete LED Information](https://github.com/midorineko/CompleteLEDs)
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
