@@ -62,7 +62,7 @@ const LEDs = ({user}) => {
       <div className="ledNav">
         <button className="signOutButton ledNavButtons" onClick={() => Auth.signOut()}>Sign Out</button>
         <div className="createUpdateContainer">
-          {devicesPulled ? 
+          {devicesPulled && !pullDeviceError ? 
             <>  
                 <button className="createDeviceButton ledNavButtons" onClick={() => setNewDevice(!newDevice)}>New Device</button>
                 <button className="updateDeviceButton ledNavButtons" onClick={(()=>setOpenUpdate(!openUpdate))}>Update Devices</button>

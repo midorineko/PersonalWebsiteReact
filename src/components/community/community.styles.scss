@@ -10,9 +10,14 @@
 }
 
 .communityTitle{
-    font-size: 4em;
+    font-size: 3em;
     margin-bottom: 2vh;
     text-align: center;
+}
+@media screen and (min-width: 700px) {
+    .communityTitle {
+        font-size: 4em;
+    }
 }
 
 .communityLinksContainer{
