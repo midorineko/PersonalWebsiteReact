@@ -5,6 +5,7 @@ const About = () => {
 
     let links = [
         {icon: 'fa-brands fa-linkedin fa-icons', link: 'https://www.linkedin.com/in/sinouye/'},
+        {icon: 'fa-brands fa-github fa-icons', link: 'https://github.com/midorineko?tab=repositories'},
         {icon: 'fa-regular fa-envelope fa-icons', link: 'mailto: Steven.Inouye91@gmail.com'},
     ]
 
@@ -43,7 +44,7 @@ const About = () => {
                     <div className="linksContainer">
                         {
                             links.map((element, eleInd) => {
-                                    return(<a key={eleInd} className='aboutLinks' href={element.link}><i className={element.icon}></i></a>)
+                                    return(<a key={eleInd} className='aboutLinks' href={element.link} target="_blank"><i className={element.icon}></i></a>)
                             })
                         }
     

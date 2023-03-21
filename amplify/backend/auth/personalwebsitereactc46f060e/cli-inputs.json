@@ -63,6 +63,6 @@
     "authProvidersUserPool": [],
     "hostedUIProviderMeta": "[]",
     "authProviders": [],
-    "oAuthMetadata": "{\"AllowedOAuthFlows\":[\"code\"],\"AllowedOAuthScopes\":[\"phone\",\"email\",\"openid\",\"profile\",\"aws.cognito.signin.user.admin\"],\"CallbackURLs\":[\"http://localhost:3000/leds/\",\"https://main.d3asv5ybyyooma.amplifyapp.com/leds/\",\"https://steveninouye.com/leds/\"],\"LogoutURLs\":[\"http://localhost:3000/leds/\",\"https://main.d3asv5ybyyooma.amplifyapp.com/leds/\",\"https://steveninouye.com/leds/\"]}"
+    "oAuthMetadata": "{\"AllowedOAuthFlows\":[\"code\"],\"AllowedOAuthScopes\":[\"phone\",\"email\",\"openid\",\"profile\",\"aws.cognito.signin.user.admin\"],\"CallbackURLs\":[\"http://localhost:3000/leds/\",\"https://main.d3asv5ybyyooma.amplifyapp.com/leds/\",\"https://www.steveninouye.com/leds/\"],\"LogoutURLs\":[\"http://localhost:3000/leds/\",\"https://main.d3asv5ybyyooma.amplifyapp.com/leds/\",\"https://www.steveninouye.com/leds/\"]}"
   }
 }

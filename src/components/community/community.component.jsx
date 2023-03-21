@@ -9,7 +9,7 @@ const Community = () => {
         {location:'../../assets/images/github.png',name: 'Github', link: 'https://github.com/midorineko?tab=repositories', description: 'Public Code Drops'},
     ]
     return (
-        <div className='communityContainer'>
+        <div className='communityContainer' id="communityContainer">
 
             <div>
                 <h1 className='communityTitle'>Communities</h1>

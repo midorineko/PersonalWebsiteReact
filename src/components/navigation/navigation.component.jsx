@@ -66,9 +66,12 @@ const Navigation = () => {
                         scrollTo('aboutContainer');
                     }}><span>About</span></a>
                 </li>
-                {/* <li>
-                    <a href="/contact">Contact</a>
-                </li> */}
+                <li>
+                    <a className='navBarLinks' href="/" onClick={(e) => {
+                        e.preventDefault();
+                        scrollTo('communityContainer');
+                    }}><span>Community</span></a>
+                </li>
                 <li>
                     <a className='navBarLinks' href="/leds">LEDs</a>
                 </li>
